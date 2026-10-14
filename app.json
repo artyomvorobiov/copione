@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    "expo-sharing",
+    "expo-localization",
+    "expo-audio",
+    "@react-native-community/datetimepicker"
+  ]
+}
