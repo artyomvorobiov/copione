@@ -304,3 +304,20 @@ export class DemoMusicCatalog implements MusicCatalog {
 export function isDemoMusicId(id: string): boolean {
   return id.startsWith('demo-');
 }
+
+/** Snapshot of a bundled demo title (used to seed the demo community). */
+export function demoSnapshot(type: string, id: string, ctx: CatalogContext): MediaSummary | null {
+  if (type === 'movie' || type === 'tv') {
+    const f = DEMO_FILMS.find((x) => x.type === type && x.id === id);
+    return f ? filmSummary(f, ctx) : null;
+  }
+  if (type === 'album') {
+    const a = DEMO_ALBUMS.find((x) => x.id === id);
+    return a ? albumSummary(a, ctx) : null;
+  }
+  if (type === 'track') {
+    const found = parseTrackId(id);
+    return found ? trackItem(found.album, found.index, ctx) : null;
+  }
+  return null;
+}
