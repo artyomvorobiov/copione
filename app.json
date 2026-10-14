@@ -45,7 +45,8 @@
           "enableBackgroundPlayback": false
         }
       ],
-      "@react-native-community/datetimepicker"
+      "@react-native-community/datetimepicker",
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": false,
